@@ -1,0 +1,11 @@
+- apollo
+    
+    - Client
+        - graqhQl 서버와 연결하기 위해 사용한다.
+        - Client 를 만들어서 graqhQl 서버의 uri 를 등록하고, 
+          apoolo provider 를 통해 연결한다.
+        - 그런뒤에 gql 로 필요한 정보들을 가져와서 사용한다.
+        - apollo dev tool 을 활용해 필요한 정보들의 경로를 파악하는 등의 작업을 할 수 있다.
+    
+    - Local State
+        - 여기서 다양한 작업을 할 수 있는데 해당 프로젝트에서는 user login 의 authenticate 를 확인하는 정도로 쓴다.

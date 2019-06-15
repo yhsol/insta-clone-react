@@ -9,7 +9,7 @@ const App = () => {
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
-        <RouterComponent />
+        <RouterComponent isLoggedIn={false} />
       </>
     </ThemeProvider>
   );

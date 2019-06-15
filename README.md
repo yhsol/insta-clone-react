@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# insta clone react
 
-## Available Scripts
+- instaclone-frontend 의 개발과정을 되짚어 보며 개선부분을 찾아 더 나은 프로덕트를 만든다.
 
-In the project directory, you can run:
+## process
 
-### `npm start`
+- 폴더 구조
+  - 대략적인 폴더 구조를 잡는다
+- 스타일
+  - 세세한 스타일 전에 globalStyles 와 reset 작업을해서 초기화 한다.
+  - styled-components 의 theme 기능을 이용하여 클론할 인스타그램의 컬러와 사이즈 등을 저장해 둘 수 있다.
+    - themeProvider 내에는 하나의 엘리먼트만 둘 수 있어서 fragment 등을 활용해 child 요소들을 하나로 묶어서 사용한다.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Daily Record
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    - 대략적인 폴더 구조를 잡는다.
+    - style 을 정리한다. global styles 를 지정하고, reset 을 통해 style 을 정리한다.
+      인스타그램의 디자인 정보들을 styled-components 의 theme 기능을 이용해 쓸 수 있도록 저장해둔다.
+    - Router 작업
+        -

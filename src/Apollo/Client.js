@@ -1,10 +1,10 @@
 import ApolloClient from "apollo-boost";
-import { defaultValue, resolvers } from "./LocalState";
+import { defaults, resolvers } from "./LocalState";
 
 const Client = new ApolloClient({
   uri: "http://localhost:4001",
-  typeDefs: {
-    defaultValue,
+  clientState: {
+    defaults,
     resolvers
   }
 });

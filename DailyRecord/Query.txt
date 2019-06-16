@@ -1,0 +1,8 @@
+- Query
+
+- App Query
+    - App Query 는 client 로 보내는 게 아니기 때문에 App.js 내에 만든다.
+    - apollo boost 로부터 gql 을 가져온다.
+    - const Query = gql`{}`; 형태로 query 를 작성한다.
+    - isLoggedIn 을 확인하는 query 를 만들고, @client 를 써서 client query 를 활용한다.
+    - https://github.com/trojanowski/react-apollo-hooks 참고!

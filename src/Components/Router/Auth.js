@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Input from "../Input";
 import Button from "../Button";
 
@@ -30,7 +29,7 @@ const FormTitle = styled.div`
   font-size: 20px;
 `;
 
-const SLink = styled.span`
+const AuthToggle = styled.span`
   cursor: pointer;
   color: ${props => props.theme.blueColor};
   margin-left: 10px;
@@ -84,12 +83,12 @@ const Auth = () => {
         {action === "logIn" ? (
           <>
             Don't have an account?{" "}
-            <SLink onClick={() => setAction("signUp")}>Sign Up</SLink>
+            <AuthToggle onClick={() => setAction("signUp")}>Sign Up</AuthToggle>
           </>
         ) : (
           <>
             Have an account?{" "}
-            <SLink onClick={() => setAction("logIn")}>Log In</SLink>
+            <AuthToggle onClick={() => setAction("logIn")}>Log In</AuthToggle>
           </>
         )}
       </Box>

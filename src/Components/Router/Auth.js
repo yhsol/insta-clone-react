@@ -28,15 +28,15 @@ const Auth = () => {
   return (
     <Wrapper>
       <Box>
-        {action !== "logIn" ? (
+        {action === "logIn" ? (
           <>
             Don't have an account?{" "}
-            <SLink onClick={() => setAction("logIn")}>Sign Up</SLink>
+            <SLink onClick={() => setAction("signUp")}>Sign Up</SLink>
           </>
         ) : (
           <>
             Have an account?{" "}
-            <SLink onClick={() => setAction("signUp")}>Log In</SLink>
+            <SLink onClick={() => setAction("logIn")}>Log In</SLink>
           </>
         )}
       </Box>

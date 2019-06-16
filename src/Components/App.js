@@ -5,6 +5,9 @@ import Theme from "../Styles/Theme";
 import RouterComponent from "./RouterComponent";
 import { useQuery } from "react-apollo-hooks";
 import { gql } from "apollo-boost";
+import { HashRouter as Router } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const AppQuery = gql`
   {
@@ -20,8 +23,12 @@ const App = () => {
   return (
     <ThemeProvider theme={Theme}>
       <>
-        <GlobalStyles />
-        <RouterComponent isLoggedIn={isLoggedIn} />
+        <Router>
+          <GlobalStyles />
+          <Header />
+          <RouterComponent isLoggedIn={isLoggedIn} />
+          <Footer />
+        </Router>
       </>
     </ThemeProvider>
   );

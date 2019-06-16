@@ -1,0 +1,5 @@
+- Auth
+    - hooks 를 통해 container, presenter 로 나누어 작성하지 않아도 되기는 하지만
+      여전히 그렇게 나눴을 때 더 효과적인 경우들이 있다.
+      useReducer 등을 먼저 확인하고, 그것을 적용하며 refactoring 을 하며 진행해도 좋을 듯.
+      일단 강의에 맞춰 구현을 하고, 작동을 확인하고, 그 후에 refactoring 을 하지는 식으로 진행하자.

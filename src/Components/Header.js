@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Input from "./Input";
 
 const HeaderForm = styled.header`
-  border-bottom: ${props => props.theme.borderBottom};
+  border-bottom: ${props => props.theme.boxBorder};
   background-color: #fff;
   position: fixed;
   top: 0;
@@ -26,13 +26,6 @@ const SHeader = styled.div`
 
 const HeaderTitle = styled.div``;
 
-const SearchInput = styled.div`
-  ${props => props.theme.whiteBox};
-  width: 60%;
-  margin: 0 auto;
-  background-color: ${props => props.theme.backgroundColor};
-`;
-
 const HeaderItems = styled.ul`
   display: flex;
   justify-content: center;
@@ -46,6 +39,10 @@ const SLink = styled(Link)`
   color: ${props => props.theme.blackColor};
 `;
 
+const SInput = styled(Input)`
+  text-align: center;
+`;
+
 const Header = () => {
   return (
     <HeaderForm>
@@ -53,9 +50,7 @@ const Header = () => {
         <HeaderTitle>
           <SLink to="/">Header Title</SLink>
         </HeaderTitle>
-        <SearchInput>
-          <Input>search input</Input>
-        </SearchInput>
+        <SInput placeholder="search" />
         <HeaderItems>
           <HeaderItem>
             <SLink to="/explore">explore</SLink>

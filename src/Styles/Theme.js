@@ -11,10 +11,9 @@ export default {
   blueColor: "#3897f0",
   navyColor: "#003569",
   borderRadius: "3px",
-  borderBottom: "solid 1px #dbdbdb",
+  boxBorder: "solid 1px #dbdbdb",
   whiteBox: `border: ${BOX_BORDER};
              border-radius: ${BORDER_RADIUS}; 
             background-color: white;
-            padding: 0.3rem;
             `
 };

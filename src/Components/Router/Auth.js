@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "../Input";
 import Button from "../Button";
+import useInput from "../../Hooks/useInput";
 
 const Wrapper = styled.div`
   margin-top: 4.8rem;
@@ -57,6 +58,14 @@ const SButton = styled(Button)`
 
 const Auth = () => {
   const [action, setAction] = useState("signUp");
+  const username = useInput("");
+  const password = useInput("");
+  const email = useInput("");
+  const firstName = useInput("");
+  const lastName = useInput("");
+
+  console.log(username, password, email, firstName, lastName);
+
   return (
     <Wrapper>
       <SForm>
@@ -64,18 +73,18 @@ const Auth = () => {
 
         {action === "logIn" ? (
           <>
-            <SInput placeholder="username" />
-            <SInput placeholder="password" />
-            <SButton text="Log In" />
+            <SInput placeholder={"username"} {...username} />
+            <SInput placeholder={"password"} {...password} type="password" />
+            <SButton text={"Log In"} />
           </>
         ) : (
           <>
-            <SInput placeholder="username" />
-            <SInput placeholder="email" />
-            <SInput placeholder="first name" />
-            <SInput placeholder="last name" />
-            <SInput placeholder="password" />
-            <SButton text="Sign Up" />
+            <SInput placeholder={"username"} {...username} />
+            <SInput placeholder={"email"} {...email} type="email" />
+            <SInput placeholder={"first name"} {...firstName} />
+            <SInput placeholder={"last name"} {...lastName} />
+            <SInput placeholder={"password"} {...password} type="password" />
+            <SButton text={"Sign Up"} />
           </>
         )}
       </SForm>

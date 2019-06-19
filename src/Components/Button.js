@@ -12,8 +12,8 @@ const Container = styled.button`
   margin-bottom: 1rem;
 `;
 
-const Button = ({ text }) => {
-  return <Container>{text}</Container>;
+const Button = ({ text, onClick }) => {
+  return <Container onClick={onClick}>{text}</Container>;
 };
 
 export default Button;

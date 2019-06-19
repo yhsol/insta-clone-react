@@ -6,3 +6,18 @@
 - 자주 사용하는 색이나 그림자, 박스등을 저장해 두어 따로 정리해서 git 에 올려두기.
     - 아예 custom hooks, style 등을 따로 repository 를 만들어서 정리해둬도 좋겠다.
 - style 부분은 최대한 해당 프로젝트에서는 물론 다른 프로젝트에서도 재사용 가능하게 만들자.
+
+- 포함 관계에 있는 요소들은 포함관계에 맞게 css 코드를 쓰는게 더 통제가 쉽다.
+    예를들어 div 안에 form 과 button 이 있다면 따로 빼내 각각의 스타일을 지정하는 것 보다
+    아래와 같이 포함관계를 가져가는게 전체에 같이 적용되야 하는 width 나 height, paddnig 등의 요소들을 쓰기가 편하다.
+    ```
+    div {
+        div style
+        input {
+            input style
+        }
+        button {
+            button style
+        }
+    } 
+    ```

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AuthPresenter from "./AuthPresenter";
 import useInput from "../../../Hooks/useInput";
+import { useMutation } from "react-apollo-hooks";
+import { LOG_IN } from "./AuthQuery";
 
 const AuthContainer = () => {
   const [action, setAction] = useState("signUp");
@@ -9,8 +11,15 @@ const AuthContainer = () => {
   const email = useInput("");
   const firstName = useInput("");
   const lastName = useInput("");
-
-  const onSubmit = e => e.preventDefault();
+  const requestSecret = useMutation(LOG_IN, {
+    variables: { email: email.value }
+  });
+  const onSubmit = e => {
+    e.preventDefault();
+    if (email !== "") {
+      requestSecret();
+    }
+  };
 
   return (
     <AuthPresenter

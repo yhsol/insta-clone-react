@@ -1,0 +1,3 @@
+- apollo 를 써서 graphQl 서버와 연결할 때 react-apollo-hooks 를 사용한다.
+  useMutation 과 같은 형태의 hooks 를 통해 사용할 수 있다.
+  (https://github.com/trojanowski/react-apollo-hooks)

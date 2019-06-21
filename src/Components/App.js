@@ -8,6 +8,8 @@ import { gql } from "apollo-boost";
 import { HashRouter as Router, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AppQuery = gql`
   {
@@ -29,6 +31,7 @@ const App = () => {
             <Header />
             <RouterComponent isLoggedIn={isLoggedIn} />
             <Footer />
+            <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
           </Route>
         </Router>
       </>

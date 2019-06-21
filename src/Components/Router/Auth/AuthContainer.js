@@ -8,10 +8,11 @@ const AuthContainer = () => {
   const [action, setAction] = useState("signUp");
   const username = useInput("");
   const password = useInput("");
-  const email = useInput("");
+  const email = useInput("yhsol1592@naver.com");
   const firstName = useInput("");
   const lastName = useInput("");
   const requestSecret = useMutation(LOG_IN, {
+    update: (_, { data }) => console.log(data),
     variables: { email: email.value }
   });
   const onSubmit = e => {

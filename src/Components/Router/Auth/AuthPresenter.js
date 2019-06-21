@@ -71,7 +71,6 @@ const AuthPresenter = ({
   action,
   setAction,
   username,
-  password,
   email,
   firstName,
   lastName,
@@ -84,8 +83,7 @@ const AuthPresenter = ({
 
         {action !== "logIn" ? (
           <form onSubmit={onSubmit}>
-            <Input placeholder={"username"} {...username} />
-            <Input placeholder={"password"} {...password} type="password" />
+            <Input placeholder={"email"} {...email} type="email" />
             <Button text={"Log In"} />
           </form>
         ) : (
@@ -94,7 +92,6 @@ const AuthPresenter = ({
             <Input placeholder={"email"} {...email} type="email" />
             <Input placeholder={"first name"} {...firstName} />
             <Input placeholder={"last name"} {...lastName} />
-            <Input placeholder={"password"} {...password} type="password" />
             <Button text={"Sign Up"} />
           </form>
         )}

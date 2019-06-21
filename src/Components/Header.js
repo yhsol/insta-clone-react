@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Input from "./Input";
+import useInput from "../Hooks/useInput";
 
 const HeaderForm = styled.header`
   border-bottom: ${props => props.theme.boxBorder};
@@ -39,18 +40,15 @@ const SLink = styled(Link)`
   color: ${props => props.theme.blackColor};
 `;
 
-const SInput = styled(Input)`
-  text-align: center;
-`;
-
 const Header = () => {
+  const search = useInput("");
   return (
     <HeaderForm>
       <SHeader>
         <HeaderTitle>
           <SLink to="/">Header Title</SLink>
         </HeaderTitle>
-        <SInput placeholder="search" />
+        <Input placeholder={"search"} {...search} />
         <HeaderItems>
           <HeaderItem>
             <SLink to="/explore">explore</SLink>

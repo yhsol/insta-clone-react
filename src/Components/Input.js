@@ -21,18 +21,16 @@ const Input = ({
   onChange,
   type = "text",
   className
-}) => {
-  return (
-    <Container
-      placeholder={placeholder}
-      required={required}
-      value={value}
-      onChange={onChange}
-      type={type}
-      className={className}
-    />
-  );
-};
+}) => (
+  <Container
+    placeholder={placeholder}
+    required={required}
+    value={value}
+    onChange={onChange}
+    type={type}
+    className={className}
+  />
+);
 
 Input.propTypes = {
   placeholder: PropTypes.string.isRequired,

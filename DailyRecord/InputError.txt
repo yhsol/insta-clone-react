@@ -1,0 +1,11 @@
+- Auth 작업을 할 때 Input 에서 props 를 가져올 수 없다는 에러가 계속 발생했다.
+ 그래서 Auth container, presenter, useInput, Input 등 관련있는 컴포넌트들을 다 봤지만 해결이 안됐다.
+ 콘솔을 찍어봐도 props 들이 잘 나왔다. 그래서 react 의 버그인가 해서 찾아보니 그것도 아닌 것 같다.
+ 해당 props 들이 잘 나오는데 props 가 없다니!
+ 그렇게 한참을 헤매다가야 error 메시지를 아래까지 읽어봤다.
+ styled(Input) 과 관련이 있었다. Auth 작업을 할 때 Input 을 꾸미기 위해 styled(Input) 을 썼었지만 변경하면서 해당 코드를 쓰지 않고 있었다.
+ 이건 또 뭔소린가. 그러다가 그때야 Header 가 보였다.
+ Header 에서 Input 을 가져다 쓴 것을 몰랐던 것이다.
+ 그리고 Header 에서 Input 의 props 들을 전달하지 않고 있었고,
+ 해당 값들을 전달하니 깔끔하게 에러가 해결되었다.
+ 에러메시지를 꼼꼼히 잘 읽자.

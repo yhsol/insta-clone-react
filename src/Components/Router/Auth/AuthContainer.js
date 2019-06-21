@@ -8,7 +8,7 @@ const AuthContainer = () => {
   const [action, setAction] = useState("signUp");
   const username = useInput("");
   const password = useInput("");
-  const email = useInput("yhsol1592@naver.com");
+  const email = useInput("");
   const firstName = useInput("");
   const lastName = useInput("");
   const requestSecret = useMutation(LOG_IN, {

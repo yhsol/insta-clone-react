@@ -81,7 +81,7 @@ const AuthPresenter = ({
       <SForm>
         <FormTitle>insta clone</FormTitle>
 
-        {action == "logIn" ? (
+        {action === "logIn" ? (
           <form onSubmit={onSubmit}>
             <Input placeholder={"email"} {...email} type="email" />
             <Button text={"Log In"} />

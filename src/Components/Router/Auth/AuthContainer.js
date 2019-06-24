@@ -12,18 +12,11 @@ const AuthContainer = () => {
   const email = useInput("");
   const firstName = useInput("");
   const lastName = useInput("");
-  const requestSecret = useMutation(LOG_IN, {
-    update: (_, { data }) => {
-      const { requestSecret } = data;
-      if (!requestSecret) {
-        toast.error("You need to account!");
-        setTimeout(() => setAction("signUp"), 2000);
-      }
-    },
+  const requestSecretMutation = useMutation(LOG_IN, {
     variables: { email: email.value }
   });
 
-  const createAccount = useMutation(CREATE_ACCOUNT, {
+  const createAccountMutation = useMutation(CREATE_ACCOUNT, {
     variables: {
       username: username.value,
       email: email.value,
@@ -32,11 +25,19 @@ const AuthContainer = () => {
     }
   });
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     if (action === "logIn") {
       if (email !== "") {
-        requestSecret();
+        try {
+          const { requestSecret } = await requestSecretMutation();
+          if (!requestSecret) {
+            toast.error("You need to account!");
+            setTimeout(() => setAction("signUp"), 2000);
+          }
+        } catch {
+          toast.error("Cant' request secret, try again!");
+        }
       } else {
         toast.error("Email is required!");
       }
@@ -47,7 +48,17 @@ const AuthContainer = () => {
         firstName.value !== "" &&
         lastName.value !== ""
       ) {
-        createAccount();
+        try {
+          const { createAccount } = await createAccountMutation();
+          if (!createAccount) {
+            toast.error("Cat't create account, try again!");
+          } else {
+            toast.success("Account created! Log In!");
+            setTimeout(() => setAction("logIn"), 2000);
+          }
+        } catch (e) {
+          toast.error(e.message);
+        }
       } else {
         toast.error("All filed are required!");
       }

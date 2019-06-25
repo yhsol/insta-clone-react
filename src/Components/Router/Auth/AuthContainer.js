@@ -9,7 +9,7 @@ const AuthContainer = () => {
   const [action, setAction] = useState("logIn");
   const username = useInput("");
   const password = useInput("");
-  const email = useInput("");
+  const email = useInput("yhsol1592@gmail.com");
   const firstName = useInput("");
   const lastName = useInput("");
   const requestSecretMutation = useMutation(LOG_IN, {
@@ -30,10 +30,15 @@ const AuthContainer = () => {
     if (action === "logIn") {
       if (email !== "") {
         try {
-          const { requestSecret } = await requestSecretMutation();
+          const {
+            data: { requestSecret }
+          } = await requestSecretMutation();
+          console.log(requestSecret);
           if (!requestSecret) {
             toast.error("You need to account!");
             setTimeout(() => setAction("signUp"), 2000);
+          } else {
+            toast.success("Check Your Email!");
           }
         } catch {
           toast.error("Cant' request secret, try again!");
@@ -49,7 +54,9 @@ const AuthContainer = () => {
         lastName.value !== ""
       ) {
         try {
-          const { createAccount } = await createAccountMutation();
+          const {
+            data: { createAccount }
+          } = await createAccountMutation();
           if (!createAccount) {
             toast.error("Cat't create account, try again!");
           } else {

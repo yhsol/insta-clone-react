@@ -1,0 +1,2 @@
+- AuthContainer 에서 각각의 Mutation 들에서 정보를 가져올 때 await 를 넣지 않으면 데이터를 가져오지 못한다.
+  await 의 정확한 용도와 사용법을 파악해야겠다.

@@ -74,6 +74,7 @@ const AuthPresenter = ({
   email,
   firstName,
   lastName,
+  secret,
   onSubmit
 }) => {
   return (
@@ -81,12 +82,13 @@ const AuthPresenter = ({
       <SForm>
         <FormTitle>insta clone</FormTitle>
 
-        {action === "logIn" ? (
+        {action === "logIn" && (
           <form onSubmit={onSubmit}>
             <Input placeholder={"email"} {...email} type="email" />
             <Button text={"Log In"} />
           </form>
-        ) : (
+        )}
+        {action === "signUp" && (
           <form onSubmit={onSubmit}>
             <Input placeholder={"username"} {...username} />
             <Input placeholder={"email"} {...email} type="email" />
@@ -95,20 +97,30 @@ const AuthPresenter = ({
             <Button text={"Sign Up"} />
           </form>
         )}
-      </SForm>
-      <Box>
-        {action === "logIn" ? (
-          <>
-            Don't have an account?{" "}
-            <AuthToggle onClick={() => setAction("signUp")}>Sign Up</AuthToggle>
-          </>
-        ) : (
-          <>
-            Have an account?{" "}
-            <AuthToggle onClick={() => setAction("logIn")}>Log In</AuthToggle>
-          </>
+        {action === "confirm" && (
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"paste login secret"} required {...secret} />
+            <Button text={"Confirm"} />
+          </form>
         )}
-      </Box>
+      </SForm>
+      {action !== "confirm" && (
+        <Box>
+          {action === "logIn" ? (
+            <>
+              Don't have an account?{" "}
+              <AuthToggle onClick={() => setAction("signUp")}>
+                Sign Up
+              </AuthToggle>
+            </>
+          ) : (
+            <>
+              Have an account?{" "}
+              <AuthToggle onClick={() => setAction("logIn")}>Log In</AuthToggle>
+            </>
+          )}
+        </Box>
+      )}
     </Wrapper>
   );
 };

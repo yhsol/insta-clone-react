@@ -1,0 +1,2 @@
+- auth container 에서 token 을 만들어 내서 그 토큰을 localLogInMutation 을 통해 logUserIn 을 갖고 있는 LocalState 컴포넌트로 전달한다.
+ 그러면 isLoggedIn 값이 true 가 되며 log in 이 되어 feed 컴포넌트를 보여주게 되는 것.

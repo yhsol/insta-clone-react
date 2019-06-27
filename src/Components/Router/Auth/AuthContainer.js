@@ -94,6 +94,8 @@ const AuthContainer = () => {
           console.log(token);
           if (token !== "" && token !== undefined) {
             localLogInMutation({ variables: { token } });
+          } else {
+            throw Error();
           }
         } catch {
           toast.error("Can't confirm secret");

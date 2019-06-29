@@ -98,7 +98,7 @@ const AuthContainer = () => {
             throw Error();
           }
         } catch {
-          toast.error("Can't confirm secret");
+          toast.error("Can't confirm secret, check again!");
         }
       }
     }

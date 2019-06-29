@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
+import { ExploreIcon, ProfileIcon, EmptyHeartIcon } from "./Icons";
+import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo-hooks";
 
 const HeaderForm = styled.header`
   border-bottom: ${props => props.theme.boxBorder};
@@ -40,24 +43,47 @@ const SLink = styled(Link)`
   color: ${props => props.theme.blackColor};
 `;
 
-const Header = () => {
+const ME = gql`
+  {
+    me {
+      username
+    }
+  }
+`;
+
+const Header = ({ history }) => {
   const search = useInput("");
+  const onSearchSubmit = e => {
+    e.preventDefault();
+    history.push(`/search?term=${search.value}`);
+  };
+  const meQuery = useQuery(ME);
+  console.log(meQuery);
+
   return (
     <HeaderForm>
       <SHeader>
         <HeaderTitle>
           <SLink to="/">Header Title</SLink>
         </HeaderTitle>
-        <Input placeholder={"search"} {...search} />
+        <form onSubmit={onSearchSubmit}>
+          <Input placeholder={"search"} {...search} />
+        </form>
         <HeaderItems>
           <HeaderItem>
-            <SLink to="/explore">explore</SLink>
+            <SLink to="/explore">
+              <ExploreIcon />
+            </SLink>
           </HeaderItem>
           <HeaderItem>
-            <SLink to="/notification">notification</SLink>
+            <SLink to="/notification">
+              <EmptyHeartIcon />
+            </SLink>
           </HeaderItem>
           <HeaderItem>
-            <SLink to="/profile">profile</SLink>
+            <SLink to="/profile/:username">
+              <ProfileIcon />
+            </SLink>
           </HeaderItem>
         </HeaderItems>
       </SHeader>
@@ -65,4 +91,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

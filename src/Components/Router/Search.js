@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   font-size: 14px;
 `;
 
-const Profile = () => {
-  return <Wrapper>profile</Wrapper>;
+const Search = () => {
+  return <Wrapper>search.value</Wrapper>;
 };
 
-export default Profile;
+export default Search;

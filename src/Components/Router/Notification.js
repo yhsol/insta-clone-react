@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   font-size: 14px;
 `;
 
-const Profile = () => {
-  return <Wrapper>profile</Wrapper>;
+const Notificaton = () => {
+  return <Wrapper>notification</Wrapper>;
 };
 
-export default Profile;
+export default Notificaton;

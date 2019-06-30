@@ -1,0 +1,6 @@
+- header 의 authorization 기능이 계속 구현이 안됐다.
+ 심지어 RouterComponent 에서 LoggedOUtRoutes 로 Auth 컴포넌트가 보여야하는데 Auth 컴포넌트도 나오지 않았다.
+ 이것에 대한 해결 방법이 필요하다.
+ RouterComponent 에서 뭔가 에러가 있나보다.
+ 지금은 App 에서 RouterComponent 가 아닌 AuthContainer 를 바로 렌더해서 로그인 과정을 하고, token 을 가져와서 login 문제를 해결했다.
+ 그렇지만 뭔가 더 알아보고 해결방법을 찾아야 한다.

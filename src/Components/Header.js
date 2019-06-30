@@ -57,8 +57,8 @@ const Header = ({ history }) => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);
   };
-  const meQuery = useQuery(ME);
-  console.log(meQuery);
+  const { data } = useQuery(ME);
+  console.log(data);
 
   return (
     <HeaderForm>

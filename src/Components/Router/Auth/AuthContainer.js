@@ -43,12 +43,12 @@ const AuthContainer = () => {
   const onSubmit = async e => {
     e.preventDefault();
     if (action === "logIn") {
-      if (email !== "") {
+      if (email.value !== "") {
         try {
           const {
             data: { requestSecret }
           } = await requestSecretMutation();
-          console.log(requestSecret);
+          // console.log(requestSecret);
           if (!requestSecret) {
             toast.error("You need to account!");
             setTimeout(() => setAction("signUp"), 2000);
@@ -91,7 +91,7 @@ const AuthContainer = () => {
           const {
             data: { confirmSecret: token }
           } = await confirmSecretMutation();
-          console.log(token);
+          // console.log(token);
           if (token !== "" && token !== undefined) {
             localLogInMutation({ variables: { token } });
           } else {

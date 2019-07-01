@@ -27,7 +27,7 @@ const LoggedInRoutes = () => (
     <Route path="/search">
       <Search />
     </Route>
-    <Route path="/:unsername">
+    <Route path="/user/:unsername">
       <Profile />
     </Route>
   </Switch>

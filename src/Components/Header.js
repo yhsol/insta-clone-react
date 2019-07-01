@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
-import { ExploreIcon, ProfileIcon, EmptyHeartIcon } from "./Icons";
+import { ExploreIcon, ProfileIcon, EmptyHeartIcon, LogoIcon } from "./Icons";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
 
@@ -64,7 +64,9 @@ const Header = ({ history }) => {
     <HeaderForm>
       <SHeader>
         <HeaderTitle>
-          <SLink to="/">Header Title</SLink>
+          <SLink to="/">
+            <LogoIcon />
+          </SLink>
         </HeaderTitle>
         <form onSubmit={onSearchSubmit}>
           <Input placeholder={"search"} {...search} />

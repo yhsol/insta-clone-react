@@ -27,9 +27,9 @@ const FEED_QUERY = gql`
         }
         text
       }
+      commentCount
       isLiked
       likeCount
-      commentCount
       createdAt
     }
   }
@@ -47,7 +47,12 @@ const Wrapper = styled.div`
 const Feed = () => {
   const { data, loading } = useQuery(FEED_QUERY);
   console.log(data, loading);
-  return <Wrapper>{loading && <Loader />}</Wrapper>;
+  return (
+    <Wrapper>
+      {loading && <Loader />}
+      {!loading && data && data.seeFeed && "have photo!"}
+    </Wrapper>
+  );
 };
 
 export default Feed;

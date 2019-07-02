@@ -1,0 +1,15 @@
+- seeFeed 에서 commentCount 값을 요청하면 출력되지 않는다. 같이 요청한 다른 값들도 출력되지 않는다.
+ 값이 없는 likeCount 는 에러가 발생하지 않는다.
+-> graphQl 서버에서 cumputed 파일에서 아래와 같이 쓰는데, count 를 붙이지 않았었다.
+   그래서 count 가 되지 않기때문에 해당 값을 어떻게 읽어야 할 지 몰라서 출력하지 못한 듯.
+   에러메시지는 "Int cannot represent non-integer value" 이다.
+   즉 해당 값이 Int 로 선언되어 있는데 그 값은 정수가 아닌 값을 읽지 못하므로 에러가 난 것.
+```
+commentCount: parent =>
+      prisma
+        .commentsConnection({
+          where: { post: { id: parent.id } }
+        })
+        .aggregate()
+        .count()
+        ```

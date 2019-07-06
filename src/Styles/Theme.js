@@ -6,7 +6,7 @@ export default {
   textColor: "#000000",
   whiteColor: "#FFFFFF",
   blackColor: "#262626",
-  greyColor: "#FAFAFA",
+  greyColor: "#999999",
   darkGreyColor: "#999",
   blueColor: "#3897f0",
   navyColor: "#003569",

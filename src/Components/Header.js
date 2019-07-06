@@ -58,7 +58,7 @@ const Header = ({ history }) => {
     history.push(`/search?term=${search.value}`);
   };
   const { data } = useQuery(ME);
-  console.log(data);
+  // console.log(data);
 
   return (
     <HeaderForm>

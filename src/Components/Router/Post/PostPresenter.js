@@ -4,8 +4,11 @@ import Input from "../../Input";
 import BoldText from "../../../Styles/BoldText";
 import Avatar from "../../Avatar";
 import { EmptyHeartIcon, CommentIcon, FullHeartIcon } from "../../Icons";
+<<<<<<< HEAD
 import { Helmet } from "react-helmet";
 import TextareaAutosize from "react-autosize-textarea";
+=======
+>>>>>>> b04bf6260df37df71da48f68dafd569bd861319f
 
 const Section = styled.section`
   width: 60vw;
@@ -14,7 +17,10 @@ const Section = styled.section`
   grid-template-columns: 2fr 1fr;
   grid-auto-rows: auto;
   grid-gap: 2rem;
+<<<<<<< HEAD
   margin-bottom: 23px;
+=======
+>>>>>>> b04bf6260df37df71da48f68dafd569bd861319f
 `;
 
 const PostSection = styled.div``;
@@ -65,6 +71,7 @@ const TimeStamp = styled.div`
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.2px;
+<<<<<<< HEAD
   margin: 10px 0;
 `;
 
@@ -92,6 +99,18 @@ const Textarea = styled(TextareaAutosize)`
 //   border-top: ${props => props.theme.boxBorder};
 // `;
 
+=======
+  margin-top: 5px;
+`;
+
+const CommentInput = styled(Input)`
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-top: ${props => props.theme.boxBorder};
+`;
+
+>>>>>>> b04bf6260df37df71da48f68dafd569bd861319f
 const PostUserInfo = styled.div`
   display: flex;
   align-items: center;
@@ -122,7 +141,10 @@ const PostPresenter = ({
   console.log(createdTime, date, now);
   return (
     <>
+<<<<<<< HEAD
       <Helmet>Feed | instaclone</Helmet>
+=======
+>>>>>>> b04bf6260df37df71da48f68dafd569bd861319f
       <Section>
         <PostSection>
           <PostBox>
@@ -155,10 +177,16 @@ const PostPresenter = ({
               />
               <div>{comments}</div>
               <TimeStamp>{now} days ago...</TimeStamp>
+<<<<<<< HEAD
               <CommentForm>
                 {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}
                 <Textarea {...newComment} placeholder={"Add a comment..."} />
               </CommentForm>
+=======
+              <form>
+                <CommentInput placeholder={"Comment!"} {...newComment} />
+              </form>
+>>>>>>> b04bf6260df37df71da48f68dafd569bd861319f
             </Meta>
           </PostBox>
         </PostSection>

@@ -4,6 +4,8 @@ import Input from "../../Input";
 import BoldText from "../../../Styles/BoldText";
 import Avatar from "../../Avatar";
 import { EmptyHeartIcon, CommentIcon, FullHeartIcon } from "../../Icons";
+import { Helmet } from "react-helmet";
+import TextareaAutosize from "react-autosize-textarea";
 
 const Section = styled.section`
   width: 60vw;
@@ -12,6 +14,7 @@ const Section = styled.section`
   grid-template-columns: 2fr 1fr;
   grid-auto-rows: auto;
   grid-gap: 2rem;
+  margin-bottom: 23px;
 `;
 
 const PostSection = styled.div``;
@@ -62,15 +65,32 @@ const TimeStamp = styled.div`
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.2px;
-  margin-top: 5px;
+  margin: 10px 0;
 `;
 
-const CommentInput = styled(Input)`
-  width: 100%;
-  height: 2rem;
-  border: none;
-  border-top: ${props => props.theme.boxBorder};
+const CommentForm = styled.form`
+  display: flex;
+  align-items: center;
 `;
+
+const Textarea = styled(TextareaAutosize)`
+  width: 100%;
+  height: 1rem;
+  border: none;
+  padding-top: 10px;
+  border-top: ${props => props.theme.boxBorder};
+  &:focus {
+    outline: none;
+  }
+  resize: none;
+  font-size: 14px;
+`;
+
+// const CommentInput = styled(Input)`
+//   width: 100%;
+//   border: none;
+//   border-top: ${props => props.theme.boxBorder};
+// `;
 
 const PostUserInfo = styled.div`
   display: flex;
@@ -102,6 +122,7 @@ const PostPresenter = ({
   console.log(createdTime, date, now);
   return (
     <>
+      <Helmet>Feed | instaclone</Helmet>
       <Section>
         <PostSection>
           <PostBox>
@@ -134,9 +155,10 @@ const PostPresenter = ({
               />
               <div>{comments}</div>
               <TimeStamp>{now} days ago...</TimeStamp>
-              <form>
-                <CommentInput placeholder={"Comment!"} {...newComment} />
-              </form>
+              <CommentForm>
+                {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}
+                <Textarea {...newComment} placeholder={"Add a comment..."} />
+              </CommentForm>
             </Meta>
           </PostBox>
         </PostSection>

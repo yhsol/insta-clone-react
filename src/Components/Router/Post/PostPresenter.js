@@ -35,14 +35,24 @@ const Location = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 0 auto;
+  position: relative;
+  padding-bottom: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
 `;
 
 const File = styled.img`
   max-width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-image: url(${props => props.src});
+  background-size: cover;
+  background-position: center;
+  opacity: ${props => (props.showing ? 1 : 0)};
+  transition: opacity 0.5s linear;
 `;
 
 const Meta = styled.div`
@@ -57,6 +67,7 @@ const PostIcons = styled.div`
       margin-right: 10px;
     }
   }
+  margin-bottom: 5px;
 `;
 
 const TimeStamp = styled.div`
@@ -112,7 +123,8 @@ const PostPresenter = ({
   isLiked,
   likeCount = "0",
   createdAt,
-  newComment
+  newComment,
+  currentItem
 }) => {
   console.log(comments);
   const { url } = files[0];
@@ -135,8 +147,13 @@ const PostPresenter = ({
             </Header>
             <Content>
               {files &&
-                files.map(file => (
-                  <File key={file.id} id={file.id} src={url} />
+                files.map((file, index) => (
+                  <File
+                    key={file.id}
+                    id={file.id}
+                    src={file.url}
+                    showing={index === currentItem}
+                  />
                 ))}
             </Content>
             <Meta>
@@ -157,7 +174,11 @@ const PostPresenter = ({
               <TimeStamp>{now} days ago...</TimeStamp>
               <CommentForm>
                 {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}
-                <Textarea {...newComment} placeholder={"Add a comment..."} />
+                <Textarea
+                  value={newComment.value}
+                  onChange={newComment.onChange}
+                  placeholder={"Add a comment..."}
+                />
               </CommentForm>
             </Meta>
           </PostBox>

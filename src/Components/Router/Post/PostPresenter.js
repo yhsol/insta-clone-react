@@ -39,7 +39,7 @@ const Content = styled.div`
   padding-bottom: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   flex-shrink: 0;
 `;
 
@@ -48,6 +48,7 @@ const File = styled.img`
   position: absolute;
   top: 0;
   width: 100%;
+  height: 100%;
   background-image: url(${props => props.src});
   background-size: cover;
   background-position: center;

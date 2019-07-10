@@ -95,7 +95,9 @@ const Textarea = styled(TextareaAutosize)`
     outline: none;
   }
   resize: none;
-  font-size: 14px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 // const CommentInput = styled(Input)`

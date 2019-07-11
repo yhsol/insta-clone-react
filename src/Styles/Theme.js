@@ -8,6 +8,7 @@ export default {
   blackColor: "#262626",
   greyColor: "#999999",
   darkGreyColor: "#999",
+  redColor: "#fb3958",
   blueColor: "#3897f0",
   navyColor: "#003569",
   borderRadius: "3px",

@@ -15,6 +15,7 @@ const Section = styled.section`
   grid-auto-rows: auto;
   grid-gap: 2rem;
   margin-bottom: 23px;
+  user-select: none;
 `;
 
 const PostSection = styled.div``;
@@ -59,11 +60,13 @@ const File = styled.img`
 const Meta = styled.div`
   padding: 10px;
 `;
-const PostIcon = styled.span``;
+const PostButton = styled.span`
+  cursor: pointer;
+`;
 
-const PostIcons = styled.div`
+const PostButtons = styled.div`
   display: flex;
-  ${PostIcon} {
+  ${PostButton} {
     &:first-child {
       margin-right: 10px;
     }
@@ -127,14 +130,15 @@ const PostPresenter = ({
   likeCount = "0",
   createdAt,
   newComment,
-  currentItem
+  currentItem,
+  toggleLike
 }) => {
-  console.log(comments);
+  // console.log(comments);
   const { url } = files[0];
   const date = new Date();
   const createdTime = new Date(createdAt);
   const now = date.getDate() - createdTime.getDate();
-  console.log(createdTime, date, now);
+  // console.log(createdTime, date, now);
   return (
     <>
       <Helmet>Feed | instaclone</Helmet>
@@ -160,14 +164,14 @@ const PostPresenter = ({
                 ))}
             </Content>
             <Meta>
-              <PostIcons>
-                <PostIcon>
+              <PostButtons>
+                <PostButton onClick={toggleLike}>
                   {isLiked ? <FullHeartIcon /> : <EmptyHeartIcon />}
-                </PostIcon>
-                <PostIcon>
+                </PostButton>
+                <PostButton>
                   <CommentIcon />
-                </PostIcon>
-              </PostIcons>
+                </PostButton>
+              </PostButtons>
               <BoldText
                 text={
                   likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PostPresenter from "./PostPresenter";
 import useInput from "../../../Hooks/useInput";
+import { useMutation } from "react-apollo-hooks";
+import { TOGGLE_LIKE, ADD_COMMENT } from "./PostQuery";
+import { toast } from "react-toastify";
 
 const PostContainer = ({
   id,
@@ -18,7 +21,13 @@ const PostContainer = ({
   const [isLikedState, setIsLiked] = useState(isLiked);
   const [likeCountState, setLikeCount] = useState(likeCount);
   const [currentItem, setCurrentItem] = useState(0);
-
+  const comment = useInput("");
+  const toggleLikeMutation = useMutation(TOGGLE_LIKE, {
+    variables: { postId: id }
+  });
+  const addCommentMutation = useMutation(ADD_COMMENT, {
+    variables: { postId: id, text: comment.value }
+  });
   const slider = () => {
     const allFiles = files.length;
     if (currentItem === allFiles - 1) {
@@ -30,7 +39,24 @@ const PostContainer = ({
   useEffect(() => {
     slider();
   }, [currentItem]);
-  const comment = useInput("");
+
+  const toggleLike = async () => {
+    if (isLikedState === true) {
+      setIsLiked(false);
+      setLikeCount(likeCountState - 1);
+    } else {
+      setIsLiked(true);
+      setLikeCount(likeCountState + 1);
+    }
+    try {
+      // throw Error();
+      await toggleLikeMutation();
+    } catch (error) {
+      // setIsLiked(!isLikedState);
+      toast.error("Can't Like!");
+    }
+  };
+  console.log(likeCount);
 
   return (
     <PostPresenter
@@ -47,6 +73,8 @@ const PostContainer = ({
       setIsLiked={setIsLiked}
       setLikeCount={setLikeCount}
       currentItem={currentItem}
+      toggleLike={toggleLike}
+      isLikedState
     />
   );
 };
@@ -79,9 +107,7 @@ PostContainer.propTypes = {
   commentCount: PropTypes.number,
   isLiked: PropTypes.bool,
   likeCount: PropTypes.number.isRequired,
-  createdAt: PropTypes.string.isRequired,
-  location: PropTypes.string,
-  caption: PropTypes.string.isRequired
+  createdAt: PropTypes.string.isRequired
 };
 
 export default PostContainer;

@@ -21,13 +21,16 @@ const PostContainer = ({
   const [isLikedState, setIsLiked] = useState(isLiked);
   const [likeCountState, setLikeCount] = useState(likeCount);
   const [currentItem, setCurrentItem] = useState(0);
+  const [selfCommentState, setSelfCommentState] = useState([]);
   const comment = useInput("");
+
   const toggleLikeMutation = useMutation(TOGGLE_LIKE, {
     variables: { postId: id }
   });
   const addCommentMutation = useMutation(ADD_COMMENT, {
     variables: { postId: id, text: comment.value }
   });
+
   const slider = () => {
     const allFiles = files.length;
     if (currentItem === allFiles - 1) {
@@ -56,7 +59,20 @@ const PostContainer = ({
       toast.error("Can't Like!");
     }
   };
-  console.log(likeCount);
+
+  const onKeyPress = async event => {
+    event.preventDefault();
+    try {
+      const {
+        data: { addComment }
+      } = addCommentMutation();
+      setSelfCommentState([...selfCommentState, addComment]);
+      comment.setValue("");
+    } catch (error) {
+      toast.error("Can't add Comment!");
+    }
+    return;
+  };
 
   return (
     <PostPresenter
@@ -74,7 +90,8 @@ const PostContainer = ({
       setLikeCount={setLikeCount}
       currentItem={currentItem}
       toggleLike={toggleLike}
-      isLikedState
+      onKeyPress={onKeyPress}
+      selfCommentState={selfCommentState}
     />
   );
 };

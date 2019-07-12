@@ -131,7 +131,9 @@ const PostPresenter = ({
   createdAt,
   newComment,
   currentItem,
-  toggleLike
+  toggleLike,
+  onKeyPress,
+  selfCommentState
 }) => {
   // console.log(comments);
   const { url } = files[0];
@@ -177,7 +179,7 @@ const PostPresenter = ({
                   likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`
                 }
               />
-              <div>{comments}</div>
+              <div>{selfCommentState}</div>
               <TimeStamp>{now} days ago...</TimeStamp>
               <CommentForm>
                 {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}
@@ -185,6 +187,7 @@ const PostPresenter = ({
                   value={newComment.value}
                   onChange={newComment.onChange}
                   placeholder={"Add a comment..."}
+                  onKeyPress={onKeyPress}
                 />
               </CommentForm>
             </Meta>

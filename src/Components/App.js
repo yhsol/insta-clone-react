@@ -13,13 +13,13 @@ import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  margin-top: 4.8rem;
-  min-height: 80vh;
+  min-height: 100vh - 15rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   font-size: 14px;
+  margin-top: 4.8rem;
 `;
 
 const AppQuery = gql`
@@ -42,8 +42,8 @@ const App = () => {
             <Header />
             <Wrapper>
               <RouterComponent isLoggedIn={isLoggedIn} />
-              <Footer />
             </Wrapper>
+            <Footer />
             <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
           </>
         </Router>

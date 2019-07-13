@@ -14,12 +14,15 @@ const HeaderForm = styled.header`
   top: 0;
   width: 100%;
   z-index: 1;
-  height: 77px;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 const SHeader = styled.div`
   width: 80vw;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 5rem;

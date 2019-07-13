@@ -16,6 +16,7 @@ const Animation = keyframes`
 
 const Wrapper = styled.div`
   animation: ${Animation} 1s linear infinite;
+  margin: 5rem auto;
 `;
 
 const Loader = () => {

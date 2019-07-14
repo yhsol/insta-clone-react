@@ -179,6 +179,7 @@ const PostPresenter = ({
                   likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`
                 }
               />
+<<<<<<< HEAD
               {comments &&
                 comments.map(comment => (
                   <div key={comment.id}>
@@ -186,6 +187,9 @@ const PostPresenter = ({
                     <span>{comment.text}</span>
                   </div>
                 ))}
+=======
+              <div>{newComment.value}</div>
+>>>>>>> ad6f144381e3f7170cecadadd2b3c37ece63a8b1
               <TimeStamp>{now} days ago...</TimeStamp>
               <CommentForm>
                 {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}

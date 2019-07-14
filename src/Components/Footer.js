@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 
 const Wrapper = styled.footer`
   width: 80vw;
+  height: 5rem;
   margin: 0 auto;
   bottom: 0;
   display: grid;
   grid-template-columns: 8fr 2fr;
+  align-items: center;
 `;
 
 const FooterItems = styled.ul`

@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 import TextareaAutosize from "react-autosize-textarea";
 
 const Section = styled.section`
-  width: 60vw;
+  width: 50vw;
   padding-top: 3rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -179,7 +179,7 @@ const PostPresenter = ({
                   likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`
                 }
               />
-              <div>{selfCommentState}</div>
+              <div>{newComment.value}</div>
               <TimeStamp>{now} days ago...</TimeStamp>
               <CommentForm>
                 {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}

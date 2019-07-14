@@ -37,7 +37,6 @@ const FEED_QUERY = gql`
 `;
 
 const Wrapper = styled.div`
-  margin-top: 4.8rem;
   min-height: 68vh;
   display: flex;
   align-items: center;

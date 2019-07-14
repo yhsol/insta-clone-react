@@ -20,7 +20,8 @@ const Input = ({
   value,
   onChange,
   type = "text",
-  className
+  className,
+  style
 }) => (
   <Container
     placeholder={placeholder}

@@ -61,15 +61,19 @@ const PostContainer = ({
   };
 
   const onKeyPress = async event => {
-    event.preventDefault();
-    try {
-      const {
-        data: { addComment }
-      } = addCommentMutation();
-      setSelfCommentState([...selfCommentState, addComment]);
-      comment.setValue("");
-    } catch (error) {
-      toast.error("Can't add Comment!");
+    const { which } = event;
+    if (which === 13) {
+      event.preventDefault();
+      try {
+        const {
+          data: { addComment }
+        } = await addCommentMutation();
+        setSelfCommentState([...selfCommentState, addComment]);
+        comment.setValue("");
+      } catch (error) {
+        toast.error("Can't add Comment!");
+        console.error(error);
+      }
     }
     return;
   };

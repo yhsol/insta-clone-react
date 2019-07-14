@@ -4,8 +4,8 @@ import { Link, withRouter } from "react-router-dom";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
 import { ExploreIcon, ProfileIcon, EmptyHeartIcon, LogoIcon } from "./Icons";
-import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
+import { ME } from "./SharedQuery";
 
 const HeaderForm = styled.header`
   border-bottom: ${props => props.theme.boxBorder};
@@ -44,14 +44,6 @@ const HeaderItem = styled.li`
 
 const SLink = styled(Link)`
   color: ${props => props.theme.blackColor};
-`;
-
-const ME = gql`
-  {
-    me {
-      username
-    }
-  }
 `;
 
 const Header = ({ history }) => {

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Input from "../../Input";
 import BoldText from "../../../Styles/BoldText";
 import Avatar from "../../Avatar";
 import { EmptyHeartIcon, CommentIcon, FullHeartIcon } from "../../Icons";
@@ -133,10 +132,11 @@ const PostPresenter = ({
   currentItem,
   toggleLike,
   onKeyPress,
-  selfCommentState
+  selfCommentState,
+  userName
 }) => {
   console.log(comments);
-  const { url } = files[0];
+  // const { url } = files[0];
   const date = new Date();
   const createdTime = new Date(createdAt);
   const now = date.getDate() - createdTime.getDate();

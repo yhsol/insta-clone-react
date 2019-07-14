@@ -22,11 +22,11 @@ const FEED_QUERY = gql`
       caption
       comments {
         id
+        text
         user {
           id
           username
         }
-        text
       }
       commentCount
       isLiked

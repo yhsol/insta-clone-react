@@ -1,0 +1,8 @@
+- comment 의 query 에 username 을 넣었는데 조회가 안됨.
+- 그 외의 값들은 잘 조회됨.
+- header 에서 작성해 두었던 ME query 를 SharedQuery 에 담아서 가져와서 username 을 출력함.
+    하지만 효율적이지도 않은 것 같고, comment 에서 왜 user 정보가 조회가 되지 않는지 해결 안됨.
+- comment 의 Computed 파일이 필요했음.(백엔드에서)
+- Comment 에서 post 와 user 를 담아서 Computed 파일을 작성함.
+- user 정보가 조회되고, username 도 출력함.
+- 디버깅 오래걸림. 효율적으로 찾을 방법을 찾아야 겠다.

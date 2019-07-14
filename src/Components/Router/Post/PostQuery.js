@@ -12,6 +12,7 @@ export const ADD_COMMENT = gql`
       id
       text
       user {
+        id
         username
       }
     }

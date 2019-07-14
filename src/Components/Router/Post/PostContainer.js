@@ -23,7 +23,6 @@ const PostContainer = ({
   const [currentItem, setCurrentItem] = useState(0);
   const [selfCommentState, setSelfCommentState] = useState([]);
   const comment = useInput("");
-
   const toggleLikeMutation = useMutation(TOGGLE_LIKE, {
     variables: { postId: id }
   });

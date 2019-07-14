@@ -135,7 +135,7 @@ const PostPresenter = ({
   onKeyPress,
   selfCommentState
 }) => {
-  // console.log(comments);
+  console.log(comments);
   const { url } = files[0];
   const date = new Date();
   const createdTime = new Date(createdAt);
@@ -179,7 +179,13 @@ const PostPresenter = ({
                   likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`
                 }
               />
-              <div>{newComment.value}</div>
+              {comments &&
+                comments.map(comment => (
+                  <div key={comment.id}>
+                    <BoldText text={comment.user.username} />
+                    <span>{comment.text}</span>
+                  </div>
+                ))}
               <TimeStamp>{now} days ago...</TimeStamp>
               <CommentForm>
                 {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}

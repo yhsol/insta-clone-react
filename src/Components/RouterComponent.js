@@ -3,10 +3,10 @@ import { BrowserRouter as Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import Feed from "./Router/Feed";
 import Auth from "./Router/Auth";
-import Search from "./Router/Search";
 import Profile from "./Router/Profile";
 import Notification from "./Router/Notification";
 import Explore from "./Router/Explore";
+import SearchContainer from "./Router/Search/SearchContainer";
 
 const LoggedInRoutes = () => (
   <Switch>
@@ -25,7 +25,7 @@ const LoggedInRoutes = () => (
       <Notification />
     </Route>
     <Route path="/search">
-      <Search />
+      <SearchContainer />
     </Route>
     <Route path="/user/:unsername">
       <Profile />

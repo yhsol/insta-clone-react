@@ -5,6 +5,7 @@ import Avatar from "../../Avatar";
 import { EmptyHeartIcon, CommentIcon, FullHeartIcon } from "../../Icons";
 import { Helmet } from "react-helmet";
 import TextareaAutosize from "react-autosize-textarea";
+import media from "styled-media-query";
 
 const Section = styled.section`
   width: 50vw;
@@ -15,12 +16,22 @@ const Section = styled.section`
   grid-gap: 2rem;
   margin-bottom: 23px;
   user-select: none;
+
+  ${media.lessThan("medium")`
+    width: 75vw;
+    display: grid;
+    grid-template-columns: 1fr;
+`}
 `;
 
 const PostSection = styled.div``;
 
 const PostBox = styled.div`
   ${props => props.theme.whiteBox}
+
+  ${media.lessThan("medium")`
+    width: 100%;
+`}
 `;
 
 const Header = styled.header`
@@ -111,6 +122,9 @@ const Textarea = styled(TextareaAutosize)`
 const PostUserInfo = styled.div`
   display: flex;
   align-items: center;
+  ${media.lessThan("medium")`
+    display: none;
+  `}
 `;
 
 const PostUser = styled.div`

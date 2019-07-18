@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import media from "styled-media-query";
 
 const Container = styled.input`
   background-color: ${props => props.theme.backgroundColor};
@@ -12,6 +13,9 @@ const Container = styled.input`
   width: 60%;
   margin: 0 auto;
   height: 1.7rem;
+  ${media.lessThan("medium")`
+  width: 86%;
+  `}
 `;
 
 const Input = ({

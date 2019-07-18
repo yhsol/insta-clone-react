@@ -16,6 +16,7 @@
     "react-scripts": "3.0.1",
     "react-toastify": "^5.1.0",
     "styled-components": "^4.2.0",
+    "styled-media-query": "^2.1.2",
     "styled-reset": "^2.0.10"
   },
   "scripts": {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import media from "styled-media-query";
 
 const Wrapper = styled.footer`
   width: 80vw;
@@ -10,12 +11,19 @@ const Wrapper = styled.footer`
   display: grid;
   grid-template-columns: 8fr 2fr;
   align-items: center;
+  ${media.lessThan("medium")`
+  font-size: 10px;
+  display: none;
+  `}
 `;
 
 const FooterItems = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${media.lessThan("medium")`
+  width: 80vw;
+  `}
 `;
 
 const FooterItem = styled.li`

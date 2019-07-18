@@ -6,13 +6,14 @@ import useInput from "../Hooks/useInput";
 import { ExploreIcon, ProfileIcon, EmptyHeartIcon, LogoIcon } from "./Icons";
 import { useQuery } from "react-apollo-hooks";
 import { ME } from "./SharedQuery";
+import media from "styled-media-query";
 
 const HeaderForm = styled.header`
   border-bottom: ${props => props.theme.boxBorder};
   background-color: #fff;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
   height: 5rem;
   display: flex;
@@ -29,6 +30,13 @@ const SHeader = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  ${media.lessThan("medium")`
+  width: 89vw;
+  &:first-child {
+    text-align: left;
+    padding-left: 1rem;
+  };
+  `};
 `;
 
 const HeaderTitle = styled.div``;

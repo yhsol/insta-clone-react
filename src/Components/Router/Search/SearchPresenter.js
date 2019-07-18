@@ -15,27 +15,42 @@ const Wrapper = styled.div`
 
 const SearchPresenter = ({ searchTerm, data, loading }) => {
   console.log(data);
-  const { username, amIFollowing, url, itsME, avatar } = data;
-  return (
-    <Wrapper>
-      {searchTerm === undefined && <BoldText text={"Search for someting"} />}
-      {loading && <Loader />}
-      {!loading && data && data.searchUser && data.searchUser.length === 0 && (
-        <BoldText text={"No Users Found"} />
-      )}
-      {!loading && data && data.searchPost && data.searchPost.length === 0 && (
-        <BoldText text={"No Posts Found"} />
-      )}
-      <div>{searchTerm}</div>
-      {/* <UserCard
-        username={username}
-        amIFollowing={amIFollowing}
-        url={url}
-        itsME={itsME}
-        avatar={avatar}
-      /> */}
-    </Wrapper>
-  );
+  if (searchTerm === undefined) {
+    return (
+      <Wrapper>
+        <BoldText text={"Search for something!"} />
+      </Wrapper>
+    );
+  } else if (loading === true) {
+    return <Loader />;
+  } else if (data && data.searchUser && data.searchPost) {
+    return (
+      <Wrapper>
+        <div>{data.searchUser[0].username} is here!</div>
+        <div>{}</div>
+      </Wrapper>
+    );
+  }
+  // return (
+  //   <Wrapper>
+  //     {searchTerm === undefined && <BoldText text={"Search for someting"} />}
+  //     {loading && <Loader />}
+  //     {!loading && data && data.searchUser && data.searchUser.length === 0 && (
+  //       <BoldText text={"No Users Found"} />
+  //     )}
+  //     {!loading && data && data.searchPost && data.searchPost.length === 0 && (
+  //       <BoldText text={"No Posts Found"} />
+  //     )}
+  //     <div>{searchTerm}</div>
+  //     {/* <UserCard
+  //       username={username}
+  //       amIFollowing={amIFollowing}
+  //       url={url}
+  //       itsME={itsME}
+  //       avatar={avatar}
+  //     /> */}
+  //   </Wrapper>
+  // );
 };
 
 export default SearchPresenter;

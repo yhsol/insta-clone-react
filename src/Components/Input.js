@@ -10,7 +10,7 @@ const Container = styled.input`
   padding: 0px 0.5rem;
   font-size: 12px;
   ${props => props.theme.whiteBox};
-  width: 60%;
+  width: 17rem;
   margin: 0 auto;
   height: 1.7rem;
   ${media.lessThan("medium")`

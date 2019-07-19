@@ -3,18 +3,34 @@ import styled from "styled-components";
 import BoldText from "../../../Styles/BoldText";
 import UserCard from "../../UserCard";
 import Loader from "../../Loader";
+import media from "styled-media-query";
 
 const Wrapper = styled.div`
-  min-height: 80vh;
-  display: flex;
+  height: 20rem;
+  position: relative;
+  top: -8px;
+  z-index: 10;
+`;
+
+const SearchResultBox = styled.div`
+  ${props => props.theme.whiteBox};
+`;
+
+const Section = styled.div`
+  display: grid;
+  grid-template-columns: 20rem;
+  grid-auto-rows: 3rem;
+  overflow: hidden;
+  /* gap: 0.5rem; */
+  ${media.lessThan("medium")`
+  grid-template-columns: 86vw;
+  grid-auto-rows: 3rem;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 14px;
+  `}
 `;
 
 const SearchPresenter = ({ searchTerm, data, loading }) => {
-  console.log(data);
+  // console.log(data);
   if (searchTerm === undefined) {
     return (
       <Wrapper>
@@ -26,8 +42,25 @@ const SearchPresenter = ({ searchTerm, data, loading }) => {
   } else if (data && data.searchUser && data.searchPost) {
     return (
       <Wrapper>
-        <div>{data.searchUser[0].username} is here!</div>
-        <div>{}</div>
+        <SearchResultBox>
+          {data.searchUser.length === 0 && data.searchPost.length === 0 && (
+            <Section>
+              <BoldText text="Nothing Found!" />
+            </Section>
+          )}
+          <Section>
+            {data.searchUser.map(user => (
+              <UserCard
+                key={user.id}
+                username={user.username}
+                amIFollowing={user.amIFollowing}
+                url={user.avatar}
+                itsMe={user.itsMe}
+              />
+            ))}
+          </Section>
+          <Section>{data.searchPost.map(post => null)}</Section>
+        </SearchResultBox>
       </Wrapper>
     );
   }
@@ -46,7 +79,7 @@ const SearchPresenter = ({ searchTerm, data, loading }) => {
   //       username={username}
   //       amIFollowing={amIFollowing}
   //       url={url}
-  //       itsME={itsME}
+  //       itsMe={itsMe}
   //       avatar={avatar}
   //     /> */}
   //   </Wrapper>

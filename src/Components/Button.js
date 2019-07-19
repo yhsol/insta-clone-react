@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import media from "styled-media-query";
 
 const Container = styled.button`
   color: white;
@@ -10,6 +11,7 @@ const Container = styled.button`
   height: 1.7rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  ${media.lessThan("medium")`display: none`}
 `;
 
 const Button = ({ text, onClick }) => {

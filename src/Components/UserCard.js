@@ -5,14 +5,23 @@ import BoldText from "../Styles/BoldText";
 import Button from "./Button";
 import PropTypes from "prop-types";
 
-const Card = styled.div``;
+const Card = styled.div`
+  display: flex;
+  align-items: center;
+  &:not(:last-child) {
+  border-bottom: ${props => props.theme.boxBorder};
+  }
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  /* ${props => props.theme.whiteBox} */
+`;
 
-const UserCard = ({ username = "user", amIFollowing, itsME, url }) => {
+const UserCard = ({ username = "user", amIFollowing, itsMe, url }) => {
   return (
     <Card>
       <Avatar size={"sm"} url={url} />
       <BoldText text={username} />
-      {!itsME && <Button text={amIFollowing ? "unfollow" : "follow"} />}
+      {/* {!itsMe && <Button text={amIFollowing ? "unfollow" : "follow"} />} */}
     </Card>
   );
 };

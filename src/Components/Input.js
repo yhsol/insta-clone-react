@@ -24,8 +24,7 @@ const Input = ({
   value,
   onChange,
   type = "text",
-  className,
-  style
+  className
 }) => (
   <Container
     placeholder={placeholder}

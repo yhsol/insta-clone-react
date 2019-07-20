@@ -18,11 +18,10 @@ const Container = styled.div`
   background-image: url(${props => props.url});
   background-size: cover;
   border-radius: 50%;
-  margin: 0 10px;
 `;
 
-const Avatar = ({ size = "sm", url }) => {
-  return <Container size={size} url={url} />;
+const Avatar = ({ size = "sm", url, className }) => {
+  return <Container className={className} size={size} url={url} />;
 };
 
 export default Avatar;

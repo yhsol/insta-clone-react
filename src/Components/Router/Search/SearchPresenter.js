@@ -21,7 +21,6 @@ const Section = styled.div`
   grid-template-columns: 20rem;
   grid-auto-rows: 3rem;
   overflow: hidden;
-  /* gap: 0.5rem; */
   ${media.lessThan("medium")`
   grid-template-columns: 86vw;
   grid-auto-rows: 3rem;
@@ -30,7 +29,7 @@ const Section = styled.div`
 `;
 
 const SearchPresenter = ({ searchTerm, data, loading }) => {
-  // console.log(data);
+  console.log(searchTerm);
   if (searchTerm === undefined) {
     return (
       <Wrapper>
@@ -38,28 +37,34 @@ const SearchPresenter = ({ searchTerm, data, loading }) => {
       </Wrapper>
     );
   } else if (loading === true) {
-    return <Loader />;
+    return (
+      <Wrapper>
+        <Loader />
+      </Wrapper>
+    );
   } else if (data && data.searchUser && data.searchPost) {
     return (
       <Wrapper>
         <SearchResultBox>
-          {data.searchUser.length === 0 && data.searchPost.length === 0 && (
+          {data.searchUser.length === 0 && data.searchPost.length === 0 ? (
             <Section>
-              <BoldText text="Nothing Found!" />
+              <BoldText text="Nothing Found!" />{" "}
             </Section>
+          ) : (
+            <>
+              <Section>
+                {data.searchUser.map(user => (
+                  <UserCard
+                    key={user.id}
+                    username={user.username}
+                    url={user.avatar}
+                    bio={user.bio}
+                  />
+                ))}
+              </Section>
+              <Section>{data.searchPost.map(post => null)}</Section>
+            </>
           )}
-          <Section>
-            {data.searchUser.map(user => (
-              <UserCard
-                key={user.id}
-                username={user.username}
-                amIFollowing={user.amIFollowing}
-                url={user.avatar}
-                itsMe={user.itsMe}
-              />
-            ))}
-          </Section>
-          <Section>{data.searchPost.map(post => null)}</Section>
         </SearchResultBox>
       </Wrapper>
     );

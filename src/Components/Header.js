@@ -35,7 +35,7 @@ const SHeader = styled.div`
   &:first-child {
     text-align: left;
     padding-left: 1rem;
-  };
+  }
   `};
 `;
 
@@ -56,12 +56,11 @@ const SLink = styled(Link)`
 
 const Header = ({ history }) => {
   const search = useInput("");
+  const { data } = useQuery(ME);
   const onSearchSubmit = e => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);
   };
-  const { data } = useQuery(ME);
-  // console.log(data);
 
   return (
     <HeaderForm>
@@ -75,7 +74,7 @@ const Header = ({ history }) => {
           <Input
             value={search.value}
             onChange={search.onChange}
-            placeholder={"search..."}
+            placeholder="search..."
           />
         </form>
         <HeaderItems>
@@ -90,9 +89,15 @@ const Header = ({ history }) => {
             </SLink>
           </HeaderItem>
           <HeaderItem>
-            <SLink to="/profile/:username">
-              <ProfileIcon />
-            </SLink>
+            {!data.me ? (
+              <SLink to="/">
+                <ProfileIcon />
+              </SLink>
+            ) : (
+              <SLink to={data.me.username}>
+                <ProfileIcon />
+              </SLink>
+            )}
           </HeaderItem>
         </HeaderItems>
       </SHeader>

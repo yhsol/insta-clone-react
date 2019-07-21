@@ -4,8 +4,7 @@ import PostPresenter from "./PostPresenter";
 import useInput from "../../../Hooks/useInput";
 import { TOGGLE_LIKE, ADD_COMMENT } from "./PostQuery";
 import { toast } from "react-toastify";
-import { useMutation, useQuery } from "react-apollo-hooks";
-import { ME } from "../../SharedQuery";
+import { useMutation } from "react-apollo-hooks";
 
 const PostContainer = ({
   id,

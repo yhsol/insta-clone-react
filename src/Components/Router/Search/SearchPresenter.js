@@ -4,6 +4,7 @@ import BoldText from "../../../Styles/BoldText";
 import UserCard from "../../UserCard";
 import Loader from "../../Loader";
 import media from "styled-media-query";
+import PostCard from "../../PostCard";
 
 const Wrapper = styled.div`
   height: 20rem;
@@ -27,6 +28,18 @@ const Section = styled.div`
   align-items: center;
   `}
 `;
+
+// const SearchCard = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 9fr;
+//   align-items: center;
+//   justify-content: center;
+//   &:not(:last-child) {
+//     border-bottom: ${props => props.theme.boxBorder};
+//   }
+//   gap: 0.5rem;
+//   padding: 0 0.5rem;
+// `;
 
 const SearchPresenter = ({ searchTerm, data, loading }) => {
   console.log(searchTerm);
@@ -64,7 +77,18 @@ const SearchPresenter = ({ searchTerm, data, loading }) => {
                   />
                 ))}
               </Section>
-              <Section>{data.searchPost.map(post => null)}</Section>
+              <Section>
+                {data.searchPost.map(post => (
+                  <PostCard
+                    key={post.id}
+                    likeCount={post.likeCount}
+                    commentCount={post.commentCount}
+                    file={post.files[0]}
+                    location={post.location}
+                    caption={post.caption}
+                  />
+                ))}
+              </Section>
             </>
           )}
         </SearchResultBox>

@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import BoldText from "../../../Styles/BoldText";
-import Avatar from "../../Avatar";
-import { EmptyHeartIcon, CommentIcon, FullHeartIcon } from "../../Icons";
-import { Helmet } from "react-helmet";
-import TextareaAutosize from "react-autosize-textarea";
+import BoldText from "../Styles/BoldText";
+import { FullHeartIcon, EmptyHeartIcon, CommentIcon } from "./Icons";
 import media from "styled-media-query";
+import TextareaAutosize from "react-autosize-textarea";
+import Avatar from "./Avatar";
 
 const Section = styled.section`
   width: 50vw;
@@ -136,7 +135,7 @@ const PostUser = styled.div`
   flex-flow: column;
 `;
 
-const PostPresenter = ({
+const SeePostCard = ({
   user: { username, avatar },
   files,
   location,
@@ -153,79 +152,64 @@ const PostPresenter = ({
   selfCommentState,
   userName
 }) => {
-  console.log(comments);
-  // const { url } = files[0];
   const date = new Date();
   const createdTime = new Date(createdAt);
   const now = date.getDate() - createdTime.getDate();
-  // console.log(createdTime, date, now);
+
   return (
-    <>
-      <Helmet>Feed | instaclone</Helmet>
-      <Section>
-        <PostSection>
-          <PostBox>
-            <Header>
-              <Styledavatar size={"sm"} url={avatar} />
-              <PostUser>
-                <BoldText text={username} />
-                <Location>{location}</Location>
-              </PostUser>
-            </Header>
-            <Content>
-              {files &&
-                files.map((file, index) => (
-                  <File
-                    key={file.id}
-                    id={file.id}
-                    src={file.url}
-                    showing={index === currentItem}
-                  />
-                ))}
-            </Content>
-            <Meta>
-              <PostButtons>
-                <PostButton onClick={toggleLike}>
-                  {isLiked ? <FullHeartIcon /> : <EmptyHeartIcon />}
-                </PostButton>
-                <PostButton>
-                  <CommentIcon />
-                </PostButton>
-              </PostButtons>
-              <BoldText
-                text={
-                  likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`
-                }
-              />
-              {comments &&
-                comments.map(comment => (
-                  <div key={comment.id}>
-                    <BoldText text={comment.user.username} />
-                    <span>{comment.text}</span>
-                  </div>
-                ))}
-              <TimeStamp>{now} days ago...</TimeStamp>
-              <CommentForm>
-                {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}
-                <Textarea
-                  value={newComment.value}
-                  onChange={newComment.onChange}
-                  placeholder={"Add a comment..."}
-                  onKeyPress={onKeyPress}
-                />
-              </CommentForm>
-            </Meta>
-          </PostBox>
-        </PostSection>
-        <div>
-          <PostUserInfo>
-            <Styledavatar size={"md"} url={avatar} />
+    <PostSection>
+      <PostBox>
+        <Header>
+          <Styledavatar size={"sm"} url={avatar} />
+          <PostUser>
             <BoldText text={username} />
-          </PostUserInfo>
-        </div>
-      </Section>
-    </>
+            <Location>{location}</Location>
+          </PostUser>
+        </Header>
+        <Content>
+          {files &&
+            files.map((file, index) => (
+              <File
+                key={file.id}
+                id={file.id}
+                src={file.url}
+                showing={index === currentItem}
+              />
+            ))}
+        </Content>
+        <Meta>
+          <PostButtons>
+            <PostButton onClick={toggleLike}>
+              {isLiked ? <FullHeartIcon /> : <EmptyHeartIcon />}
+            </PostButton>
+            <PostButton>
+              <CommentIcon />
+            </PostButton>
+          </PostButtons>
+          <BoldText
+            text={likeCount < 2 ? `${likeCount} like` : `${likeCount} likes`}
+          />
+          {comments &&
+            comments.map(comment => (
+              <div key={comment.id}>
+                <BoldText text={comment.user.username} />
+                <span>{comment.text}</span>
+              </div>
+            ))}
+          <TimeStamp>{now} days ago...</TimeStamp>
+          <CommentForm>
+            {/* <CommentInput placeholder={"Comment!"} {...newComment} /> */}
+            <Textarea
+              value={newComment.value}
+              onChange={newComment.onChange}
+              placeholder={"Add a comment..."}
+              onKeyPress={onKeyPress}
+            />
+          </CommentForm>
+        </Meta>
+      </PostBox>
+    </PostSection>
   );
 };
 
-export default PostPresenter;
+export default SeePostCard;

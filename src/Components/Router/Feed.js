@@ -4,7 +4,6 @@ import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
 import Loader from "../Loader";
 import Post from "./Post";
-import media from "styled-media-query";
 
 const FEED_QUERY = gql`
   {

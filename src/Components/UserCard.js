@@ -4,7 +4,6 @@ import Avatar from "./Avatar";
 import BoldText from "../Styles/BoldText";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Follow from "./Follow";
 
 const Card = styled.div`
   display: grid;
@@ -18,7 +17,7 @@ const Card = styled.div`
   padding: 0 0.5rem;
 `;
 
-const UserCard = ({ username = "user", url, bio, amIFollowing, id }) => {
+const UserCard = ({ username = "user", url, bio }) => {
   return (
     <Card>
       <Link to={`${username}`}>
@@ -29,7 +28,6 @@ const UserCard = ({ username = "user", url, bio, amIFollowing, id }) => {
           <BoldText text={username} />
         </Link>
         <div>{bio}</div>
-        <Follow amIFollowing={amIFollowing} id={id} />
       </div>
     </Card>
   );

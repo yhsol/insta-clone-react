@@ -1,0 +1,15 @@
+- follow 버튼을 toggle 하기 위해서 FollowComponent 에서 useState 를 사용해서 follow 값을 나타낼 state 값을 하나 만든다.
+    const [amIFollowing, setAmIFollowing] = useState(amIFollowing);
+    과 같이 만들어서 boolean 값에 따라 조건을 걸어서 활용할 수 있게 한다.
+    ```
+      const onClick = () => {
+    if (amIFollowingState === true) {
+      setAmIFollowing(false);
+      unfollowMutation();
+    } else {
+      setAmIFollowing(true);
+      followMutation();
+    }
+  };
+  ```
+  그리고 해당 값을 이용해서 조건을 판단하고, 그것에 따라 state 값을 변경하고, 또한 그것에 따라 mutation 을 진행한다.

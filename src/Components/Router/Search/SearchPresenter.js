@@ -59,6 +59,8 @@ const SearchPresenter = ({ searchTerm, data, loading }) => {
                     username={user.username}
                     url={user.avatar}
                     bio={user.bio}
+                    id={user.id}
+                    amIFollowing={user.amIFollowing}
                   />
                 ))}
               </Section>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import BoldText from "../../../Styles/BoldText";
 import Avatar from "../../Avatar";
 import { EmptyHeartIcon, CommentIcon, FullHeartIcon } from "../../Icons";
@@ -47,6 +48,9 @@ const Styledavatar = styled(Avatar)`
 
 const Location = styled.div`
   margin-top: 2px;
+  a {
+    color: inherit;
+  }
 `;
 
 const Content = styled.div`
@@ -153,8 +157,6 @@ const PostPresenter = ({
   selfCommentState,
   userName
 }) => {
-  console.log(comments);
-  // const { url } = files[0];
   const date = new Date();
   const createdTime = new Date(createdAt);
   const now = date.getDate() - createdTime.getDate();
@@ -166,10 +168,18 @@ const PostPresenter = ({
         <PostSection>
           <PostBox>
             <Header>
-              <Styledavatar size={"sm"} url={avatar} />
+              <Link to={`{username}`}>
+                <Styledavatar size={"sm"} url={avatar} />
+              </Link>
               <PostUser>
-                <BoldText text={username} />
-                <Location>{location}</Location>
+                <Link to={`{username}`}>
+                  <BoldText text={username} />
+                </Link>
+                <Location>
+                  <Link to={`/search?term=${location}`}>{location}</Link>
+                  {location && caption && `, `}
+                  <Link to={`/search?term=${caption}`}>{caption}</Link>
+                </Location>
               </PostUser>
             </Header>
             <Content>

@@ -116,20 +116,6 @@ const Textarea = styled(TextareaAutosize)`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-// const CommentInput = styled(Input)`
-//   width: 100%;
-//   border: none;
-//   border-top: ${props => props.theme.boxBorder};
-// `;
-
-const PostUserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  ${media.lessThan("medium")`
-    display: none;
-  `}
-`;
-
 const PostUser = styled.div`
   display: flex;
   flex-flow: column;

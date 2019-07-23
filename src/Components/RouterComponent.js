@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import Feed from "./Router/Feed";
 import Auth from "./Router/Auth";
@@ -15,14 +15,14 @@ const LoggedInRoutes = () => (
     <Route path="/notification" component={Notification} />
     <Route path="/search" component={Search} />
     <Route path="/:username" component={Profile} />
+    <Redirect path="*" to="/" />
   </Switch>
 );
 
 const LoggedOutRoutes = () => (
   <Switch>
-    <Route exact path="/">
-      <Auth />
-    </Route>
+    <Route exact path="/" component={Auth} />
+    <Redirect path="*" to="/" />
   </Switch>
 );
 

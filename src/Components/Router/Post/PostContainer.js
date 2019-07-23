@@ -38,6 +38,7 @@ const PostContainer = ({
       setTimeout(() => setCurrentItem(currentItem + 1), 3000);
     }
   };
+
   useEffect(() => {
     slider();
   }, [currentItem]);

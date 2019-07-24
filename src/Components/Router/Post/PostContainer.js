@@ -41,7 +41,7 @@ const PostContainer = ({
 
   useEffect(() => {
     slider();
-  }, [currentItem]);
+  }, []);
 
   const toggleLike = async () => {
     if (isLikedState === true) {

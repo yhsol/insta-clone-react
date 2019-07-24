@@ -8,6 +8,10 @@ import { Helmet } from "react-helmet";
 import TextareaAutosize from "react-autosize-textarea";
 import media from "styled-media-query";
 
+// TODO
+//  - cut comment. and showing commentCount.
+//  - refactor slider.
+
 const Section = styled.section`
   width: 50vw;
   padding-top: 3rem;

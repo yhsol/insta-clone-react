@@ -6,6 +6,8 @@ import media from "styled-media-query";
 import TextareaAutosize from "react-autosize-textarea";
 import Avatar from "./Avatar";
 
+// TODO: connect with ExplorePostCard. this component will show whne cliked in ExplorePostCard.
+
 const Section = styled.section`
   width: 50vw;
   padding-top: 3rem;

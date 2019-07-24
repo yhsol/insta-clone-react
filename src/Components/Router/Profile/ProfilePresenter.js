@@ -6,6 +6,9 @@ import Button from "../../Button";
 import BoldText from "../../../Styles/BoldText";
 import ExplorePostCard from "../../ExplorePostCard";
 import Follow from "../../Follow";
+import media from "styled-media-query";
+import { Link } from "react-router-dom";
+import { SettingIcon } from "../../Icons";
 
 const Wrapper = styled.div`
   padding-top: 3rem;
@@ -42,6 +45,7 @@ const UserTitle = styled.span`
 
 const UserButtonList = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const UserButton = styled.div`
@@ -73,6 +77,23 @@ const Posts = styled.div`
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 200px;
   grid-auto-rows: 200px;
+  ${media.lessThan("medium")`
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px;
+  grid-auto-rows: 100px;
+  width: 100vw;
+  padding: 1rem;
+  `}
+`;
+
+const StyledAvatar = styled(Avatar)`
+  width: 150px;
+  height: 150px;
+  ${media.lessThan("medium")`width: 50px; height: 50px;`};
+`;
+
+const StyledButton = styled(Button)`
+  ${media.lessThan("medium")`width: 5rem; height: 1.4rem`};
 `;
 
 const ProfilePresenter = ({ loading, data, logOut }) => {
@@ -102,25 +123,21 @@ const ProfilePresenter = ({ loading, data, logOut }) => {
       <Wrapper>
         <Header>
           <HeaderItems>
-            <Avatar size={"lg"} url={avatar} />
+            <StyledAvatar size={""} url={avatar} />
           </HeaderItems>
           <HeaderTitle>
             <HeaderItems>
               <HeaderItemsRows>
                 <UserTitle>{username}</UserTitle>
-                {"  "}
                 {itsMe ? (
                   <UserButtonList>
                     <UserButton>
-                      <Button
-                        onClick={() =>
-                          alert("this function was not working yet!")
-                        }
-                        text="Edit Profile"
-                      />
+                      <Link to="/accounts">
+                        <SettingIcon />
+                      </Link>
                     </UserButton>
                     <UserButton>
-                      <Button onClick={logOut} text="Log Out" />
+                      <StyledButton onClick={logOut} text="Log Out" />
                     </UserButton>
                   </UserButtonList>
                 ) : (

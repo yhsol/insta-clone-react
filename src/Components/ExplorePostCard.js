@@ -5,6 +5,8 @@ import { CommentIcon, EmptyHeartIcon } from "./Icons";
 import { Link } from "react-router-dom";
 import SeePostCard from "./SeePostCard";
 
+// TODO: Link to post view popup or another router.
+
 const Overlay = styled.div`
   opacity: 0;
   display: flex;

@@ -48,7 +48,7 @@ const AuthToggle = styled.span`
 `;
 
 const Box = styled.div`
-  ${props => props.theme.whiteBox}
+  ${props => props.theme.whiteBox};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -89,11 +89,11 @@ const Posts = styled.div`
 const StyledAvatar = styled(Avatar)`
   width: 150px;
   height: 150px;
-  ${media.lessThan("medium")`width: 50px; height: 50px;`};
+  ${media.lessThan("medium")`width: 50px; height: 50px;`}
 `;
 
 const StyledButton = styled(Button)`
-  ${media.lessThan("medium")`width: 5rem; height: 1.4rem`};
+  ${media.lessThan("medium")`width: 5rem; height: 1.4rem;`};
 `;
 
 const ProfilePresenter = ({ loading, data, logOut }) => {
@@ -123,7 +123,7 @@ const ProfilePresenter = ({ loading, data, logOut }) => {
       <Wrapper>
         <Header>
           <HeaderItems>
-            <StyledAvatar size={""} url={avatar} />
+            <StyledAvatar size={"lg"} url={avatar} />
           </HeaderItems>
           <HeaderTitle>
             <HeaderItems>
